@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [ 
+      "@babel/preset-env",
+      {
+        "targets": [
+	  "chrome >= 100",
+          "node >= 16",
+        ] 
+      }
+    ]
+  ]
+}
+

@@ -1,5 +1,5 @@
 var fs = require("fs");
-var babel = require("babel-core");
+var babel = require("@babel/core");
 
 babel.transformFile("src.js", writeTo("index.js"));
 babel.transformFile("test-src.js", writeTo("test.js"));
