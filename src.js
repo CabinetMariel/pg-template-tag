@@ -21,6 +21,8 @@ class SqlLiteral {
         let mid;
         if (child instanceof SqlLiteral) {
           mid = child._resolveFor(context);
+        } else if (child instanceof SqlId) {
+          mid = child.toString();
         } else {
           context.values.push(child);
           mid = '$' + context.values.length;
@@ -40,11 +42,29 @@ class SqlLiteral {
     return this._resolve().values;
   }
 }
+function SqlId(str) {
+  this._str = str;
+}
 
-export default
+SqlId.prototype.toString = function toString() {
+  function escapeId(str) {
+    if (Array.isArray(str)) return str.map(SqlLiteral.id).join('.');
+    return str.split('.').map((s) => `"${s.replace(/"/g, '""')}"`).join('.');
+  }
+  return escapeId(this._str);
+};
+
+SqlLiteral.id = (str) => new SqlId(str);
+
 function SQLTag(parts, ...values) {
   return new SqlLiteral(parts, values);
 }
+
+SQLTag.id = SqlLiteral.id;
+SQLTag.join = join; 
+
+export default SQLTag;
+
 
 export
 function sqlLiteral(value) {

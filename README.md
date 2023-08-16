@@ -48,3 +48,9 @@ function filterUsers(filter) {
   return connection.query(SQL`select * from users where ${SQL.join(conditions, ' and ')}`);
 }
 ```
+There's an `.id` function to espace table name, and other identifiers.
+
+```javascript
+SQL`SELECT * FROM ${SQL.id('foo')} where ${SQL.id('foo.bar')} = ${'baz'}`;
+```
+`.id` can take either a string (it will be split if there is any dot in it) or an array, eg `"foo.bar"` is equivalent to `["foo","bar"]`.

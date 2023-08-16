@@ -48,4 +48,9 @@ describe("pg-template-tag", function() {
     assert.equal(literal.text, '$1 $2 $3');
     assert.deepEqual(literal.values, [0, 0, 0]);
   });
+  it("escapes identifiers", function() {
+    var literal = SQL`SELECT * FROM ${SQL.id("foo")} where ${SQL.id("foo.bar")} = ${'baz'}`;
+    assert.equal(literal.text, 'SELECT * FROM "foo" where "foo"."bar" = $1');
+    assert.deepEqual(literal.values, ['baz']);
+  });
 });
