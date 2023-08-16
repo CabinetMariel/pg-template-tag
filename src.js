@@ -62,6 +62,7 @@ function SQLTag(parts, ...values) {
 
 SQLTag.id = SqlLiteral.id;
 SQLTag.join = join; 
+SQLTag.array = (arr) => `{${arr.join(',')}}`;
 
 export default SQLTag;
 
