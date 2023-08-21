@@ -74,6 +74,7 @@ function sqlLiteral(value) {
 
 export
 function join(array, separator) {
+  if (array.length === 0) return SQLTag``;
   separator = separator || ",";
   let parts = [""];
   for (let i = 0; i < array.length-1; i++) {

@@ -35,7 +35,11 @@ describe("pg-template-tag", function() {
     assert.equal(literal.text, "$1,$2,$3");
     assert.deepEqual(literal.values, [1, 'hello', [1, 2, 3]]);
   });
-
+  it("joins empty arrays", function() {
+    var litteral = join([], ',');
+    assert.equal(litteral.text, '');
+    assert.deepEqual(litteral.values, []);
+  });
   it("reuses values for reused child parts", function () {
     var child = SQL`${0}`;
     var literal = SQL`${child} ${child} ${child}`;
