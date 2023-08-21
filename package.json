@@ -1,6 +1,6 @@
 {
   "name": "@stf8/pg-template-tag",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ECMAScript 6 (2015) template tag function to write queries for node-postgres.",
   "repository": {
     "type": "git",
