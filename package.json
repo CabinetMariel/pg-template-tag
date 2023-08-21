@@ -1,8 +1,11 @@
 {
-  "name": "pg-template-tag",
+  "name": "@stf8/pg-template-tag",
   "version": "0.1.2",
   "description": "ECMAScript 6 (2015) template tag function to write queries for node-postgres.",
-  "repository": "XeCycle/pg-template-tag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CabinetMariel/pg-template-tag"
+  },
   "files": [
     "*.js",
     "README.md"
@@ -17,10 +20,16 @@
     "postgres"
   ],
   "author": "Carl Lei",
+  "contributors": [{ "name": "Stéphane Mariel" } ], 
   "license": "SAX-PD",
   "devDependencies": {
     "@babel/core": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
     "mocha": "^10.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/CabinetMariel/pg-template-tag/issues"
+  },
+  "homepage": "https://github.com/CabinetMariel/pg-template-tag#readme",
+  "main": "index.js"
 }
