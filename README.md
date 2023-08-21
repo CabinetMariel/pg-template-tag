@@ -1,5 +1,11 @@
-#pg-template-tag
-[![Build Status](https://travis-ci.org/XeCycle/pg-template-tag.svg)](https://travis-ci.org/XeCycle/pg-template-tag)
+
+
+*Note :*
+
+This is a fork of https://github.com/XeCycle/pg-template-tag with updated dependencies and few addons. 
+
+
+# pg-template-tag
 
 Build a { text, values } object for use with
 [brianc/node-postgres](https://github.com/brianc/node-postgres/).
